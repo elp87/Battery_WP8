@@ -11,7 +11,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
 
     <!--LayoutRoot представляет корневую сетку, где размещается все содержимое страницы-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -47,7 +47,8 @@
         <!--ContentPanel — поместите здесь дополнительное содержимое-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Заряд батареи" VerticalAlignment="Top" FontSize="36"/>
-            <TextBlock x:Name="BatteryChargeTextBlock" HorizontalAlignment="Left" Margin="10,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock x:Name="BatteryChargeTextBlock" HorizontalAlignment="Left" Margin="10,63,0,0" TextWrapping="Wrap" Text="100%" VerticalAlignment="Top"/>
+            <Grid x:Name="DrawGrid" Margin="0,95,0,10"/>
 
         </Grid>
 
