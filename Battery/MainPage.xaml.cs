@@ -45,32 +45,24 @@ namespace Battery
         #region Methods
         private void DrawBattery()
         {
-            Rectangle _batMainRectangle = new Rectangle();
+            Brush brush = BatteryChargeTextBlock.Foreground;
+            Rectangle _batMainRectangle = StandardRectangleCreator();
             DrawGrid.Children.Add(_batMainRectangle);
-            _batMainRectangle.HorizontalAlignment = HorizontalAlignment.Center;
-            _batMainRectangle.VerticalAlignment = VerticalAlignment.Bottom;
-            _batMainRectangle.Stroke = new SolidColorBrush(Colors.White);
             _batMainRectangle.Margin = new Thickness(0, 0, 0, 100);
             _batMainRectangle.StrokeThickness = 3;
             _batMainRectangle.Width = LayoutRoot.ActualWidth * 0.3;
             _batMainRectangle.Height = LayoutRoot.ActualHeight * 0.4;
 
 
-            Rectangle _batTopRectangle = new Rectangle();
+            Rectangle _batTopRectangle = StandardRectangleCreator();
             DrawGrid.Children.Add(_batTopRectangle);
-            _batTopRectangle.HorizontalAlignment = HorizontalAlignment.Center;
-            _batTopRectangle.VerticalAlignment = VerticalAlignment.Bottom;
-            _batTopRectangle.Stroke = new SolidColorBrush(Colors.White);
             _batTopRectangle.Margin = new Thickness(0, 0, 0, 97 + (LayoutRoot.ActualHeight * 0.4));
             _batTopRectangle.StrokeThickness = 3;
             _batTopRectangle.Width = LayoutRoot.ActualWidth * 0.1;
             _batTopRectangle.Height = 15;
 
-            _chargeLevelRectangle = new Rectangle();
+            _chargeLevelRectangle = StandardRectangleCreator();
             DrawGrid.Children.Add(_chargeLevelRectangle);
-            _chargeLevelRectangle.HorizontalAlignment = HorizontalAlignment.Center;
-            _chargeLevelRectangle.VerticalAlignment = VerticalAlignment.Bottom;
-            _chargeLevelRectangle.Stroke = new SolidColorBrush(Colors.White);
             _chargeLevelRectangle.Fill = new SolidColorBrush(CalcColor());
             _chargeLevelRectangle.Margin = new Thickness(0, 0, 0, 102);
             _chargeLevelRectangle.Width = LayoutRoot.ActualWidth * 0.3 - 4;
@@ -106,6 +98,15 @@ namespace Battery
                 color.G = (byte)(0 + (255 / 50 * charge));
             }
             return color;
+        }
+
+        private Rectangle StandardRectangleCreator()
+        {
+            Rectangle rect = new Rectangle();
+            rect.HorizontalAlignment = HorizontalAlignment.Center;
+            rect.VerticalAlignment = VerticalAlignment.Bottom;
+            rect.Stroke = new SolidColorBrush((Color)Application.Current.Resources["PhoneForegroundColor"]);
+            return rect;
         }
         #endregion
 
