@@ -108,8 +108,6 @@ namespace Battery
             rect.Stroke = new SolidColorBrush((Color)Application.Current.Resources["PhoneForegroundColor"]);
             return rect;
         }
-        #endregion
-
-        
+        #endregion        
     }        
 }
