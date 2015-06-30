@@ -34,7 +34,7 @@ namespace Battery
 
         private void OnRemainingChargePercentChanged(object sender, object e)
         {
-            BatteryChargeTextBlock.Dispatcher.BeginInvoke(delegate()
+            BatteryChargeTextBlock.Dispatcher.BeginInvoke( () =>
             {
                 UpdateInfo();
                 UpdateBatteryPic();
